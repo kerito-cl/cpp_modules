@@ -6,7 +6,7 @@
 /*   By: mquero <mquero@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:49:45 by mquero            #+#    #+#             */
-/*   Updated: 2025/03/31 19:53:04 by mquero           ###   ########.fr       */
+/*   Updated: 2025/03/31 20:11:57 by mquero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
 
     std::ofstream outputFile(filename + ".replace");
     if (!outputFile) {
-        std::cerr << "Cannot create file " << argv[0] << std::endl;
+        std::cerr << "Cannot create file " << std::endl;
         return 1;
     }
     std::string line;
