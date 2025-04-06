@@ -1,6 +1,6 @@
 
-NAME = Fixed
-SOURCES = main.cpp Fixed.cpp
+NAME = ScavTrap
+SOURCES = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OFILES = $(SOURCES:.cpp=.o)
 CC = c++

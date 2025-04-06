@@ -1,6 +1,6 @@
 
-NAME = Fixed
-SOURCES = main.cpp Fixed.cpp
+NAME = ClapTrap
+SOURCES = main.cpp ClapTrap.cpp
 
 OFILES = $(SOURCES:.cpp=.o)
 CC = c++

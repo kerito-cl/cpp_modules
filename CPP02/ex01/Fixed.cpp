@@ -6,7 +6,7 @@
 /*   By: mquero <mquero@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 11:32:56 by mquero            #+#    #+#             */
-/*   Updated: 2025/04/03 14:28:22 by mquero           ###   ########.fr       */
+/*   Updated: 2025/04/03 16:49:36 by mquero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return _value;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called" << std::endl;
     _value = raw;
 }
 
@@ -28,6 +26,18 @@ void Fixed::setRawBits(int const raw)
 Fixed::Fixed() : _value(0)
 {
     std::cout << "Default constructor called" << std::endl;
+}
+Fixed::Fixed(const int intValue)
+{
+    std::cout << "Int constructor called" << std::endl;
+    _value = intValue << _fractionalBits;
+}
+
+Fixed::Fixed(const float floatValue)
+{
+    std::cout << "Float constructor called" << std::endl;
+    _value = roundf(floatValue * (1 << _fractionalBits));
+
 }
 
 Fixed::Fixed(const Fixed& cpy)
@@ -47,4 +57,21 @@ Fixed& Fixed::operator=(const Fixed &op)
 Fixed::~Fixed()
 {
     std::cout << "Destructor called" << std::endl;
+}
+
+
+float Fixed::toFloat( void ) const
+{
+    return (float)_value / (1 << _fractionalBits);
+}
+
+int Fixed::toInt( void ) const
+{
+    return _value >> _fractionalBits;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+    os << fixed.toFloat();
+    return os;
 }
