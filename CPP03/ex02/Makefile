@@ -1,6 +1,6 @@
 
-NAME = ScavTrap
-SOURCES = main.cpp ClapTrap.cpp ScavTrap.cpp
+NAME = FragTrap
+SOURCES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OFILES = $(SOURCES:.cpp=.o)
 CC = c++

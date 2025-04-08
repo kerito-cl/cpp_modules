@@ -1,11 +1,11 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-    ScavTrap kero("kero");
-    ScavTrap pedro("pedro");
-    ScavTrap Op;
-    ScavTrap cpy(pedro);
+    FragTrap kero("kero");
+    FragTrap pedro("pedro");
+    FragTrap Op;
+    FragTrap cpy(pedro);
 
     std::cout << "---------------------" << std::endl;
     kero.attack(pedro.getName());
@@ -16,7 +16,7 @@ int main(void)
     std::cout << "---------------------" << std::endl;
     cpy.attack("God");
     std::cout << "---------------------" << std::endl;
-    kero.guardGate();
+    kero.highFivesGuys();
     std::cout << "---------------------" << std::endl;
     return 0;
 }

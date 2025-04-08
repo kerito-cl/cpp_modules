@@ -25,21 +25,25 @@ ScavTrap::ScavTrap(std::string name)
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ScavtTrap Copy constructor called" << std::endl;
+    _name = other._name;
+    _hitPoints = other._hitPoints;
+    _energyPoints = other._energyPoints;
+    _attackDamage = other._attackDamage;
 }
-ScavTrap& ScavTrap::operator=(const ScavTrap& op)
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &op)
+    std::cout << "ScavTrap Copy assignment operator called" << std::endl;
+    if (this != &other)
     {
-        _name = op._name;
-        _hitPoints = op._hitPoints;
-        _energyPoints = op._energyPoints;
-        _attackDamage = op._attackDamage;
+        _name = other._name;
+        _hitPoints = other._hitPoints;
+        _energyPoints = other._energyPoints;
+        _attackDamage = other._attackDamage;
     }
     return *this;
 }
-
 
 void ScavTrap::attack(const std::string& target)
 {
@@ -48,6 +52,8 @@ void ScavTrap::attack(const std::string& target)
         std::cout << "ScavTrap " << _name << " attacks " << target << " causing "<< _attackDamage << " points of damage!" << std::endl;
         _energyPoints -= 1;
     }
+    else
+        std::cout << "ScavTrap " << _name << " has no energy left " << std::endl;
 }
 
 void ScavTrap::guardGate()
