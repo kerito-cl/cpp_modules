@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <cmath>
-
+#include <limits>
 
 class Fixed 
 {
@@ -46,7 +46,8 @@ class Fixed
         int getRawBits(void) const;
         void setRawBits(int const raw);
 
-        friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
