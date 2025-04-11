@@ -2,15 +2,16 @@
 
 int main(void)
 {
-    FragTrap kero("kero");
-    FragTrap pedro("pedro");
+    FragTrap kero("Kero");
+    FragTrap pedro("Pedro");
     FragTrap Op;
-    FragTrap cpy(pedro);
+    FragTrap cpy(kero);
 
+    Op = pedro;
     std::cout << "---------------------" << std::endl;
     kero.attack(pedro.getName());
     std::cout << "---------------------" << std::endl;
-    pedro.takeDamage(0);
+    pedro.takeDamage(30);
     std::cout << "---------------------" << std::endl;
     Op.beRepaired(2);
     std::cout << "---------------------" << std::endl;

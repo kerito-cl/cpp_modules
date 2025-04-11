@@ -10,7 +10,7 @@ int main(void)
     std::cout << "---------------------" << std::endl;
     kero.attack(pedro.getName());
     std::cout << "---------------------" << std::endl;
-    pedro.takeDamage(0);
+    pedro.takeDamage(20);
     std::cout << "---------------------" << std::endl;
     Op.beRepaired(2);
     std::cout << "---------------------" << std::endl;
