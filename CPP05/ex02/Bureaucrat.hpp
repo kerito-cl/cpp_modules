@@ -2,9 +2,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -32,14 +32,15 @@ public:
     Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
 
-    std::string getName();
-    void setName(std::string newName);
-    unsigned int getGrade();
+    std::string getName() const;
+    void setName(std::string newName) ;
+    unsigned int getGrade() const ;
     void setGrade(unsigned int newGrade);
     void increaseGrade();
     void decreaseGrade();
 
-    void signForm(Form & a);
+    void signForm(AForm  & a);
+    void executeForm(AForm const & form);
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& b);

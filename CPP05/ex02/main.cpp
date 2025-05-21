@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
-
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
@@ -13,7 +15,7 @@ int main(void)
     {
         kero.setGrade(1);
         julio.setGrade(123);
-        anna.setGrade(150);
+        anna.setGrade(140);
         std::cout << "\033[31m" << kero << std::endl;
         std::cout << "\033[35m" << julio << std::endl;
         std::cout << "\033[34m"<< anna << std::endl;
@@ -48,16 +50,20 @@ int main(void)
 
     std::cout << "----------FORM TESTS -------------" << std::endl;
 
+    ShrubberyCreationForm plants("plants");
+    PresidentialPardonForm kennedy("Kennedy");
+    RobotomyRequestForm robot("Robot");
+
+    std::cout << "-----------------------" << std::endl;
+
     try
     {
-        Form math("Math", 120, 130);
-        std::cout << "-----------------------" << std::endl;
-        std::cout << "\033[34m"<< math << "\033[0m"<<std::endl;
-        std::cout << "-----------------------" << std::endl;
-        anna.signForm(math);
-        julio.signForm(math);
-        kero.signForm(math);
-        std::cout << "\033[34m"<< math << "\033[0m"<<std::endl;
+        anna.executeForm(plants);
+        anna.signForm(plants);
+        kero.executeForm(plants);
+        kero.signForm(plants);
+        julio.executeForm(plants);
+        julio.signForm(plants);
     }
     catch (std::exception & e)
     {
@@ -68,12 +74,29 @@ int main(void)
     std::cout << "-----------------------" << std::endl;
     try
     {
-        Form science("Science", 0, 130);
+        anna.executeForm(kennedy);
+        anna.signForm(kennedy);
+        kero.executeForm(kennedy);
+        kero.signForm(kennedy);
+        julio.executeForm(kennedy);
+        julio.signForm(kennedy);
+    }
+    catch (std::exception & e)
+    {
         std::cout << "-----------------------" << std::endl;
-        std::cout << science << std::endl;
-        std::cout << "-----------------------" << std::endl;
-        kero.signForm(science);
-        std::cout << science << std::endl;
+        std::cout << "\033[35m"<< "Caught exception: " << e.what() << "\033[0m"<<std::endl;
+    }
+
+    std::cout << "-----------------------" << std::endl;
+
+    try
+    {
+        anna.executeForm(robot);
+        anna.signForm(robot);
+        kero.executeForm(robot);
+        kero.signForm(robot);
+        julio.executeForm(robot);
+        julio.signForm(robot);
     }
     catch (std::exception & e)
     {

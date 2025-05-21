@@ -34,7 +34,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
     return *this;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
     return _name;
 }
@@ -42,7 +42,7 @@ void Bureaucrat::setName(std::string newName)
 {
     _name = newName;
 }
-unsigned int Bureaucrat::getGrade()
+unsigned int Bureaucrat::getGrade() const
 {
     return _grade;
 }
@@ -87,7 +87,7 @@ const char * Bureaucrat::GradeTooLowException::what()  const noexcept
 }
 
 
-void Bureaucrat::signForm(Form & a)
+void Bureaucrat::signForm(AForm & a)
 {
     try
     {
@@ -95,9 +95,24 @@ void Bureaucrat::signForm(Form & a)
     }
     catch(const std::exception& e)
     {
-        std::cout << "\033[31m"<< getName() << " could not signed " << a.getName() << " because "<< e.what() << "\033[0m"<< std::endl;
+        std::cerr << "\033[31m"<< getName() << " could not signed " << a.getName() << " because "<< e.what()<< "\033[0m" << std::endl;
     }
     
+}
+
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+    try
+    {
+        form.execute(*this);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "\033[31m"<< getName() << " could not execute " << form.getName() << " because "<< e.what() << "\033[0m" << std::endl;
+    }
+    
+
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& b)

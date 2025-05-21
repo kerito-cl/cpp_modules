@@ -1,6 +1,7 @@
 
-NAME = Form
-SOURCES = main.cpp Bureaucrat.cpp Form.cpp
+NAME = Forms
+SOURCES = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 
 OFILES = $(SOURCES:.cpp=.o)
 CC = c++
