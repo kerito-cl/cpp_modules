@@ -8,7 +8,7 @@
 class Bureaucrat
 {
 private:
-    std::string _name;
+    const std::string _name;
     unsigned int    _grade;
     
 public:
@@ -25,14 +25,12 @@ public:
             const char * what()  const noexcept override;
     };
 
-    Bureaucrat();
-    Bureaucrat(std::string name);
+    Bureaucrat(std::string name, unsigned int grade);
     Bureaucrat(const Bureaucrat& other);
-    Bureaucrat& operator=(const Bureaucrat& other);
+    Bureaucrat& operator=(const Bureaucrat& other) = delete;
     ~Bureaucrat();
 
     std::string getName();
-    void setName(std::string newName);
     unsigned int getGrade();
     void setGrade(unsigned int newGrade);
     void increaseGrade();

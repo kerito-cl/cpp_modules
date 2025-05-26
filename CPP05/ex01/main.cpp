@@ -3,17 +3,14 @@
 
 int main(void)
 {
-    Bureaucrat kero;
-    Bureaucrat julio("Julio");
-    Bureaucrat anna("Anna");
 
     std::cout << "-----------Bureaucrats Tests------------" << std::endl;
 
     try
     {
-        kero.setGrade(1);
-        julio.setGrade(123);
-        anna.setGrade(150);
+        Bureaucrat kero("Kero", 1);
+        Bureaucrat julio("Julio", 130);
+        Bureaucrat anna("Anna", 150);
         std::cout << "\033[31m" << kero << std::endl;
         std::cout << "\033[35m" << julio << std::endl;
         std::cout << "\033[34m"<< anna << std::endl;
@@ -26,6 +23,7 @@ int main(void)
     std::cout << "-----------------------" << std::endl;
     try
     {
+        Bureaucrat kero("Kero", 1);
         kero.increaseGrade();
     }
     catch (std::exception & e)
@@ -37,6 +35,7 @@ int main(void)
 
     try
     {
+        Bureaucrat anna("Anna", 150);
         anna.decreaseGrade();
     }
     catch (std::exception & e)
@@ -50,6 +49,9 @@ int main(void)
 
     try
     {
+        Bureaucrat kero("Kero", 1);
+        Bureaucrat julio("Julio", 130);
+        Bureaucrat anna("Anna", 150);
         Form math("Math", 120, 130);
         std::cout << "-----------------------" << std::endl;
         std::cout << "\033[34m"<< math << "\033[0m"<<std::endl;
@@ -68,6 +70,7 @@ int main(void)
     std::cout << "-----------------------" << std::endl;
     try
     {
+        Bureaucrat kero("Kero", 1);
         Form science("Science", 0, 130);
         std::cout << "-----------------------" << std::endl;
         std::cout << science << std::endl;
