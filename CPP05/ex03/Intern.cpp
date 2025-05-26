@@ -36,16 +36,19 @@ AForm *Intern::makeForm(std::string formName, std::string formTarget)
     {
     case 0:
         newForm = new RobotomyRequestForm(formTarget);
+        std::cout << "\033[32m" << "Intern creates "<< formName << "\033[0m"<< std::endl;
         break;
     case 1:
         newForm = new PresidentialPardonForm(formTarget);
+        std::cout << "\033[32m" << "Intern creates "<< formName << "\033[0m"<< std::endl;
         break;
 
     case 2:
         newForm = new ShrubberyCreationForm(formTarget);
+        std::cout << "\033[32m" << "Intern creates "<< formName << "\033[0m"<< std::endl;
         break;
     default:
-        std::cout << "\033[35m" << formName << " form has not been found"<< "\033[0m"<< std::endl;
+        std::cout << "\033[32m" << formName << " form has not been found"<< "\033[0m"<< std::endl;
     }    
     return newForm;
 
